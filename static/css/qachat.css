@@ -1,0 +1,65 @@
+.answer{
+    width: 100%;
+    position: relative;
+    height: 75vh;
+}
+
+.ipt{
+    display:flex;
+    align-items: center;
+    position: absolute;
+    bottom: 60px;
+    margin: 0 15px;
+    padding-right: 0;
+    border-radius: 15px;
+    width: calc(100% - 30px);
+    height: 50px;
+    border: 1px solid #e7eaec;
+}
+.ipt textarea {
+    resize: none;
+    overflow-y: auto;
+    border: none;
+    box-shadow: none;
+    right: 0;
+}
+.ipt textarea:focus{
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.ipt button{
+    width: 10%;
+    right: 0;
+}
+
+#chatWindow {
+    max-height: calc(70vh - 120px);
+    height:auto;
+    overflow-y: auto;
+}
+
+.message-bubble {
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px dashed #378dfc;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+
+.message-bubble p {
+    font-size: 18px;
+    margin-left:15px;
+    white-space: normal;
+    word-wrap: break-word;
+    width:calc(100% - 100px)
+}
+
+.chat-icon {
+    width: 75px;
+    height: 50px;
+    border-radius: 3px;
+}

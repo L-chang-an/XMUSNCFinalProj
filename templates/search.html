@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap-5.3.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="../static/css/prism-okaidia.css">
+    <link rel="stylesheet" href="../static/css/custom.min.css">
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23019901-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23019901-1');
+    </script>
+  </head>
+<body>
+    <div class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark">
+      <div class="container">
+        <a href="./index.html" class="navbar-brand">0xff</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav">
+            <li class="nav-item" data-bs-theme="light">
+              <a class="nav-link" href="./" id="themes">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./qachat">QAchat</a>
+            </li>
+              <li class="nav-item" data-bs-theme="light">
+              <a class="nav-link" href="./analysis">Analysis</a>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="./help">Help</a>
+              </li>
+          </ul>
+          <form class="d-flex">
+              <input class="form-control me-sm-2" id="text2search" name="text2search" type="search" placeholder="Text Search" value="">
+              <button class="btn btn-secondary my-2 my-sm-0" id="btn-text2search" name="btn-text2search" type="button">Search</button>
+          </form>
+          <ul class="navbar-nav ms-md-auto">
+            <li class="nav-item">
+              <a target="_blank" rel="noopener" class="nav-link" href="https://github.com/thomaspark/bootswatch/"><i class="bi bi-github"></i><span class="d-lg-none ms-2">GitHub</span></a>
+            </li>
+            <li class="nav-item">
+              <a target="_blank" rel="noopener" class="nav-link" href="https://s.weibo.com/weibo?q=chatgpt"><i class="bi-sina-weibo"></i><span class="d-lg-none ms-2">Weibo</span></a>
+            </li>
+            <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+              <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+              <hr class="d-lg-none my-2 text-white-50">
+            </li>
+            <li class="nav-item dropdown" data-bs-theme="light">
+              <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme">
+                <i class="bi bi-circle-half"></i>
+                <span class="d-lg-none ms-2">Toggle theme</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                    <i class="bi bi-sun-fill"></i><span class="ms-2">Light</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="true">
+                    <i class="bi bi-moon-stars-fill"></i><span class="ms-2">Dark</span>
+                  </button>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <div class="bs-docs-section">
+            <div class="row mt-5">
+              <div class="col-lg-12">
+                <h2>Result for Text Search</h2>
+              </div>
+            </div>
+            <div class="row">
+               {% for res in result_ls %}
+               {% if forloop.counter|divisibleby:2 == 0 %}
+               <div class="col-lg-4">
+                  <div class="card bg-light mb-3" style="max-width: 20rem;">
+                    <div class="card-header">{{ header }}</div>
+                    <div class="card-body">
+                      <h4 class="card-title">Answer {{ forloop.counter }}</h4>
+                      <p class="card-text">{{ res }}</p>
+                    </div>
+                  </div>
+               {% else %}
+                  <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                    <div class="card-header">{{ header }}</div>
+                    <div class="card-body">
+                      <h4 class="card-title">Answer {{ forloop.counter }}</h4>
+                      <p class="card-text">{{ res }}</p>
+                    </div>
+                  </div>
+               </div>
+               {% endif %}
+               {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/jquery-3.7.0.js"></script>
+    <script src="../static/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/prism.js" data-manual></script>
+    <script src="../static/js/custom.js"></script>
+    <script src="../static/js/search.js"></script>
+</body>
+</html>
